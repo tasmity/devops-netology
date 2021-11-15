@@ -68,11 +68,13 @@ echo "Вывод c псевдотерминала №0. /dev/pts/0" > /dev/tty2
 ## 8. Получится ли в качестве входного потока для pipe использовать только stderr команды, не потеряв при этом отображение stdout на pty?
 Ответ:
 ```shell
-vagrant@vagrant:~$ rm tmp/ 8>&1 9>&2 2>&8 1>&9 | grep "dir"
+vagrant@vagrant:~$ rm tmp/ 8>&1 9>&2 2>&8 1>&9 | grep -o "dir\w*"
+directory
 ```
 rm: cannot remove 'tmp/': Is a <font color='red'>dir</font>ectory
 ```shell
-vagrant@vagrant:~$ ls tmp/ 8>&1 9>&2 2>&8 1>&9 | grep "dir"
+vagrant@vagrant:~$ ls tmp/ 8>&1 9>&2 2>&8 1>&9 | grep -o "dir\w*"
+directory
 ```
 ls: cannot access 'tmpr/': No such file or <font color='red'>dir</font>ectory
 
