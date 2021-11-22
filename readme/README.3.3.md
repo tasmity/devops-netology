@@ -96,6 +96,7 @@ root@vagrant:~# dpkg -L bpfcc-tools | grep sbin/opensnoop
 Ubuntu 20.04. Дополнительные сведения по установке.
 
 Ответ:
+
 Установка:
 ```shell
 sudo apt-get install bpfcc-tools linux-headers-$(uname -r)
