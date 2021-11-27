@@ -138,6 +138,21 @@ Syncing disks.
 Пришлось удалить RAID и еще раз пройтись по предыдущим пунктам:
 ```shell
 vagrant@vagrant:~$ sudo mdadm --create --verbose /dev/md0 -l 1 -n 2 /dev/sd{b,c}
+mdadm: partition table exists on /dev/sdb
+mdadm: partition table exists on /dev/sdb but will be lost or
+       meaningless after creating array
+mdadm: Note: this array has metadata at the start and
+    may not be suitable as a boot device.  If you plan to
+    store '/boot' on this device please ensure that
+    your boot-loader understands md/v1.x metadata, or use
+    --metadata=0.90
+mdadm: partition table exists on /dev/sdc
+mdadm: partition table exists on /dev/sdc but will be lost or
+       meaningless after creating array
+mdadm: size set to 2618368K
+Continue creating array? y
+mdadm: Defaulting to version 1.2 metadata
+mdadm: array /dev/md0 started.
 
 vagrant@vagrant:~$ sudo mdadm -S /dev/md0
 mdadm: stopped /dev/md0
