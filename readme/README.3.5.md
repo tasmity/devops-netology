@@ -170,69 +170,10 @@ vagrant@vagrant:~$ sudo wipefs --all --force /dev/sd{b,c}
 /dev/sdc: 2 bytes were erased at offset 0x000001fe (PMBR): 55 aa
 
 vagrant@vagrant:~$ sudo fdisk /dev/sdb
-
-Welcome to fdisk (util-linux 2.34).
-Changes will remain in memory only, until you decide to write them.
-Be careful before using the write command.
-
-Device does not contain a recognized partition table.
-Created a new DOS disklabel with disk identifier 0x0f8cb2bc.
-
-Command (m for help): g
-Created a new GPT disklabel (GUID: 4E609AF4-9A22-EE47-BACA-91E9E586C81D).
-
-Command (m for help): n
-Partition number (1-128, default 1):
-First sector (2048-5242846, default 2048):
-Last sector, +/-sectors or +/-size{K,M,G,T,P} (2048-5242846, default 5242846): +2G
-
-Created a new partition 1 of type 'Linux filesystem' and of size 2 GiB.
-
-Command (m for help): n
-Partition number (2-128, default 2):
-First sector (4196352-5242846, default 4196352):
-Last sector, +/-sectors or +/-size{K,M,G,T,P} (4196352-5242846, default 5242846):
-
-Created a new partition 2 of type 'Linux filesystem' and of size 511 MiB.
-
-Command (m for help): w
-The partition table has been altered.
-Calling ioctl() to re-read partition table.
-Syncing disks.
-
-
+# Вывод соответствует пункту 4
 
 vagrant@vagrant:~$ sudo sfdisk -d /dev/sdb | sudo sfdisk /dev/sdc
-Checking that no-one is using this disk right now ... OK
-
-Disk /dev/sdc: 2.51 GiB, 2684354560 bytes, 5242880 sectors
-Disk model: VBOX HARDDISK
-Units: sectors of 1 * 512 = 512 bytes
-Sector size (logical/physical): 512 bytes / 512 bytes
-I/O size (minimum/optimal): 512 bytes / 512 bytes
-
->>> Script header accepted.
->>> Script header accepted.
->>> Script header accepted.
->>> Script header accepted.
->>> Script header accepted.
->>> Script header accepted.
->>> Created a new GPT disklabel (GUID: 4E609AF4-9A22-EE47-BACA-91E9E586C81D).
-/dev/sdc1: Created a new partition 1 of type 'Linux filesystem' and of size 2 GiB.
-/dev/sdc2: Created a new partition 2 of type 'Linux filesystem' and of size 511 MiB.
-/dev/sdc3: Done.
-
-New situation:
-Disklabel type: gpt
-Disk identifier: 4E609AF4-9A22-EE47-BACA-91E9E586C81D
-
-Device       Start     End Sectors  Size Type
-/dev/sdc1     2048 4196351 4194304    2G Linux filesystem
-/dev/sdc2  4196352 5242846 1046495  511M Linux filesystem
-
-The partition table has been altered.
-Calling ioctl() to re-read partition table.
-Syncing disks.
+# Вывод соответствует пункту 5
 ```
 
 Переделала:
