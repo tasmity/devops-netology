@@ -80,11 +80,11 @@ config.vm.network "forwarded_port", guest: 19999, host: 19999
 Ознакомьтесь с метриками, которые по умолчанию собираются Netdata и с комментариями, которые даны к этим метрикам.
 
 Ответ:
-![](../image/Снимок экрана 2021-11-27 в 18.13.29.png)
+![](https://github.com/tasmity/devops-netology/blob/main/image/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA%20%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0%202021-11-27%20%D0%B2%2018.13.29.png)
 
-![](../image/Снимок экрана 2021-11-27 в 18.13.46.png)
+![](https://github.com/tasmity/devops-netology/blob/main/image/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA%20%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0%202021-11-27%20%D0%B2%2018.13.46.png)
 
-![](../image/Снимок экрана 2021-11-27 в 18.14.13.png)
+![](https://github.com/tasmity/devops-netology/blob/main/image/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA%20%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0%202021-11-27%20%D0%B2%2018.14.13.png)
 
 ## 4. Можно ли по выводу dmesg понять, осознает ли ОС, что загружена не на настоящем оборудовании, а на системе виртуализации?
 Ответ:
