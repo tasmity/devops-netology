@@ -89,18 +89,51 @@ config.vm.network "forwarded_port", guest: 19999, host: 19999
 ## 4. Можно ли по выводу dmesg понять, осознает ли ОС, что загружена не на настоящем оборудовании, а на системе виртуализации?
 Ответ:
 
-
+Судя по выводу - да:
+```shell
+vagrant@vagrant:~$ dmesg | grep virt
+[    0.003077] CPU MTRRs all blank - virtualized system.
+[    0.147965] Booting paravirtualized kernel on KVM
+[    3.637438] systemd[1]: Detected virtualization oracle
+```
 
 ## 5. Как настроен sysctl fs.nr_open на системе по-умолчанию? 
 Узнайте, что означает этот параметр. Какой другой существующий лимит не позволит достичь такого числа (ulimit --help)?
 
 Ответ:
-
+> nr_open: Это означает максимальное количество файловых дескрипторов, которые может выполнять процесс.
+выделить. Значение по умолчанию 1024 * 1024 (1048576), которое должно быть
+хватит на большинство машин. Фактический лимит зависит от RLIMIT_NOFILE
+ограничение ресурса.
+```shell
+vagrant@vagrant:~$ sysctl fs.nr_open
+fs.nr_open = 1048576
+```
+Но когда мы смотрим "мягкий" лимит, то получаем другое ограничение:
+```shell
+vagrant@vagrant:~$ ulimit -aS | grep open
+open files                      (-n) 1024
+```
 
 ## 6. Запустите любой долгоживущий процесс (не ls, который отработает мгновенно, а, например, sleep 1h) в отдельном неймспейсе процессов; покажите, что ваш процесс работает под PID 1 через nsenter.
 Для простоты работайте в данном задании под root (sudo -i). Под обычным пользователем требуются дополнительные опции (--map-root-user) и т.д.
 
 Ответ:
+```shell
+vagrant@vagrant:~$ unshare --mount-proc --map-root-user --fork --mount --pid sleep 1h &
+[1] 1310
+
+vagrant@vagrant:~$ ps -aux | grep sleep
+vagrant     1310  0.0  0.0   8080   584 pts/0    S    15:44   0:00 unshare --mount-proc --map-root-user --fork --mount --pid sleep 1h
+vagrant     1311  0.0  0.0   8076   592 pts/0    S    15:44   0:00 sleep 1h
+vagrant     1344  0.0  0.0   8900   736 pts/0    S+   15:51   0:00 grep --color=auto sleep
+
+vagrant@vagrant:~$ sudo nsenter --target 1311 --pid --mount
+
+root@vagrant:/# ps -aux | grep sleep
+vagrant        1  0.0  0.0   8076   592 pts/0    S    15:44   0:00 sleep 1h
+root          13  0.0  0.0   8900   668 pts/0    S+   15:52   0:00 grep --color=auto sleep
+```
 
 ## 7. Найдите информацию о том, что такое :(){ :|:& };:
 Запустите эту команду в своей виртуальной машине Vagrant с Ubuntu 20.04 (это важно, поведение в других ОС не проверялось).
@@ -120,3 +153,64 @@ config.vm.network "forwarded_port", guest: 19999, host: 19999
 >+ & , в данном случае, означает выполнение предыдущего в фоновом режиме.
 >+ Затем есть ; , который известен как разделитель команд.
 >+ Наконец, : запускает эту "цепную реакцию", активируя бомбу fork .
+
+```shell
+vagrant@vagrant:~$ dmesg
+........
+[ 2621.449747] cgroup: fork rejected by pids controller in /user.slice/user-1000.slice/session-1.scope
+........
+```
+> Cgroups - это механизм Linux для установки ограничений на системные ресурсы, такие как максимальное количество
+> процессов, циклы ЦП, использование ОЗУ и т. д. Это другой, более современный уровень ограничения ресурсов, чем
+> ulimit(который использует getrlimit()системный вызов).
+> 
+> Если вы запустите systemctl status user-<uid>.slice (который представляет контрольную группу пользователя),
+> вы можете увидеть текущее и максимальное количество задач (процессов и потоков), разрешенных в этой контрольной
+> группе.
+```sh
+vagrant@vagrant:~$ systemctl status user-$UID.slice
+● user-1000.slice - User Slice of UID 1000
+     Loaded: loaded
+    Drop-In: /usr/lib/systemd/system/user-.slice.d
+             └─10-defaults.conf
+     Active: active since Sat 2021-11-27 15:10:25 UTC; 1h 1min ago
+       Docs: man:user@.service(5)
+      Tasks: 12 (limit: 2356)
+     Memory: 21.0M
+     CGroup: /user.slice/user-1000.slice
+             ├─session-1.scope
+             │ ├─1107 sshd: vagrant [priv]
+             │ ├─1154 sshd: vagrant@pts/0
+             │ ├─1155 -bash
+             │ ├─1310 unshare --mount-proc --map-root-user --fork --mount --pid sleep 1h
+             │ └─1311 sleep 1h
+             ├─session-4.scope
+             │ ├─18642 sshd: vagrant [priv]
+             │ ├─18677 sshd: vagrant@pts/1
+             │ ├─18678 -bash
+             │ ├─18737 systemctl status user-1000.slice
+             │ └─18738 pager
+             └─user@1000.service
+               └─init.scope
+                 ├─1120 /lib/systemd/systemd --user
+                 └─1121 (sd-pam)
+```
+> По умолчанию максимальное количество задач, которое systemd разрешает каждому пользователю, составляет 33% от
+> «общесистемного максимума» ( sysctl kernel.threads-max); это обычно составляет ~ 10 000 задач. Если вы хотите
+> изменить это ограничение:
+>
+>В systemd v239 и более поздних версиях пользовательское значение по умолчанию устанавливается с помощью TasksMax = in:
+>
+> /usr/lib/systemd/system/user-.slice.d/10-defaults.conf
+> 
+> Чтобы настроить ограничение для конкретного пользователя (которое будет применено немедленно, а также сохранено
+> в /etc/systemd/system.control), запустите:
+>
+>systemctl [--runtime] set-property user-<uid>.slice TasksMax=<value>
+> 
+>Здесь также можно использовать обычные механизмы отмены настроек модуля (например, systemctl edit), но они потребуют
+> перезагрузки. Например, если вы хотите изменить лимит для каждого пользователя, вы можете создать
+> /etc/systemd/system/user-.slice.d/15-limits.conf.
+>
+> В systemd v238 и более ранних версиях пользователя по умолчанию задается через UserTasksMax = in /etc/systemd/logind.conf.
+> Для изменения значения обычно требуется перезагрузка.
