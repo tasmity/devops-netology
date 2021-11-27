@@ -140,7 +140,6 @@ Syncing disks.
 vagrant@vagrant:~$ sudo mdadm --create --verbose /dev/md0 -l 1 -n 2 /dev/sd{b,c}
 
 vagrant@vagrant:~$ sudo mdadm -S /dev/md0
-
 mdadm: stopped /dev/md0
 
 vagrant@vagrant:~$ sudo mdadm --zero-superblock /dev/sdb
