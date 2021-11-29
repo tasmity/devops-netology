@@ -54,11 +54,13 @@ Connection closed by foreign host.
 + приложите скриншот консоли браузера в ответ.
 
 Ответ:
+
 ![](https://github.com/tasmity/devops-netology/blob/main/image/network1/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA%20%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0%202021-11-29%20%D0%B2%2020.02.11.png)
 ![](https://github.com/tasmity/devops-netology/blob/main/image/network1/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA%20%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0%202021-11-29%20%D0%B2%2020.06.03.png)
 
 ## 3. Какой IP адрес у вас в интернете?
 Ответ:
+
 ![](https://github.com/tasmity/devops-netology/blob/main/image/network1/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA%20%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0%202021-11-29%20%D0%B2%2020.13.28.png)
 
 ## 4. Какому провайдеру принадлежит ваш IP адрес? Какой автономной системе AS? Воспользуйтесь утилитой whois
@@ -151,6 +153,7 @@ traceroute to 8.8.8.8 (8.8.8.8), 30 hops max, 60 byte packets
 ```
 ## 6. Повторите задание 5 в утилите mtr. На каком участке наибольшая задержка - delay?
 Ответ:
+
 ![](https://github.com/tasmity/devops-netology/blob/main/image/network1/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA%20%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0%202021-11-29%20%D0%B2%2021.11.28.png)
 10. AS15169  142.251.49.24                  97.0%   102   26.8  26.6  25.3  27.6   1.1
 ## 7. Какие DNS сервера отвечают за доменное имя dns.google? Какие A записи? воспользуйтесь утилитой dig
