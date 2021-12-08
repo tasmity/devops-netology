@@ -125,7 +125,6 @@ To activate the new configuration, you need to run:
   
 # проверьте синтаксис на наличие ошибок
 vagrant@vagrant:~$ sudo apache2ctl configtest
-AH00558: apache2: Could not reliably determine the server's fully qualified domain name, using 127.0.1.1. Set the 'ServerName' directive globally to suppress this message
 Syntax OK
 ```
 ```shell
