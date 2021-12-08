@@ -148,4 +148,4 @@ UNCONN         0               0                        172.16.113.135%eth0:68  
 
 ## 5. Используя diagrams.net, создайте L3 диаграмму вашей домашней сети или любой другой сети, с которой вы работали.
 Ответ:
-![](https://github.com/tasmity/devops-netology/blob/main/image/network1/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA%20%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0%202021-11-29%20%D0%B2%2020.13.28.png)
+![](https://github.com/tasmity/devops-netology/blob/main/image/network1/Untitled%20Diagram.drawio.png)
