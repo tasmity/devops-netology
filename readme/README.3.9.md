@@ -288,6 +288,7 @@ Last login: Wed Dec  8 20:28:32 2021
 ```shell
 vagrant@vagrant:~$ mv .ssh/id_rsa .ssh/id_rsa2
 
+vagrant@vagrant:~$ мш .ssh/config
 Host tasmity
 HostName 192.168.1.5
 IdentityFile ~/.ssh/id_rsa2
