@@ -137,7 +137,7 @@ sudo systemctl restart apache2
 ## 4. Проверьте на TLS уязвимости произвольный сайт в интернете (кроме сайтов МВД, ФСБ, МинОбр, НацБанк, РосКосмос, РосАтом, РосНАНО и любых госкомпаний, объектов КИИ, ВПК ... и тому подобное).
 Ответ:
 ```shell
-vagrant@vagrant:~/testssl.sh$ ./testssl.sh -U --sneaky https://itigic.com/ru/
+vagrant@vagrant:~/testssl.sh$ ./testssl.sh -U --sneaky https://itigic.com/
 
 ###########################################################
     testssl.sh       3.1dev from https://testssl.sh/dev/
@@ -156,12 +156,12 @@ vagrant@vagrant:~/testssl.sh$ ./testssl.sh -U --sneaky https://itigic.com/ru/
  (built: "Jan 18 17:12:17 2019", platform: "linux-x86_64")
 
 
-Testing all IPv4 addresses (port 443): 3.66.136.156 18.159.80.129 18.158.98.109
+Testing all IPv4 addresses (port 443): 18.158.98.109 18.159.80.129 3.66.136.156
 ---------------------------------------------------------------------------------------------------------------------
- Start 2021-12-08 18:09:28        -->> 3.66.136.156:443 (itigic.com) <<--
+ Start 2021-12-08 20:39:01        -->> 18.158.98.109:443 (itigic.com) <<--
 
- Further IP addresses:   18.158.98.109 18.159.80.129
- rDNS (3.66.136.156):    ec2-3-66-136-156.eu-central-1.compute.amazonaws.com.
+ Further IP addresses:   3.66.136.156 18.159.80.129
+ rDNS (18.158.98.109):   ec2-18-158-98-109.eu-central-1.compute.amazonaws.com.
  Service detected:       HTTP
 
 
@@ -174,7 +174,7 @@ Testing all IPv4 addresses (port 443): 3.66.136.156 18.159.80.129 18.158.98.109
  Secure Renegotiation (RFC 5746)           OpenSSL handshake didn't succeed
  Secure Client-Initiated Renegotiation     not vulnerable (OK)
  CRIME, TLS (CVE-2012-4929)                not vulnerable (OK)
- BREACH (CVE-2013-3587)                    potentially NOT ok, "br gzip" HTTP compression detected. - only supplied "/ru/" tested
+ BREACH (CVE-2013-3587)                    potentially NOT ok, "br gzip" HTTP compression detected. - only supplied "/" tested
                                            Can be ignored for static pages or if no secrets in the page
  POODLE, SSL (CVE-2014-3566)               not vulnerable (OK)
  TLS_FALLBACK_SCSV (RFC 7507)              Downgrade attack prevention supported (OK)
@@ -192,16 +192,17 @@ Testing all IPv4 addresses (port 443): 3.66.136.156 18.159.80.129 18.158.98.109
  RC4 (CVE-2013-2566, CVE-2015-2808)        no RC4 ciphers detected (OK)
 
 
- Done 2021-12-08 18:10:09 [  42s] -->> 3.66.136.156:443 (itigic.com) <<--
+ Done 2021-12-08 20:39:39 [  39s] -->> 18.158.98.109:443 (itigic.com) <<--
 
 ---------------------------------------------------------------------------------------------------------------------
- Start 2021-12-08 18:10:09        -->> 18.159.80.129:443 (itigic.com) <<--
+ Start 2021-12-08 20:39:39        -->> 18.159.80.129:443 (itigic.com) <<--
 
- Further IP addresses:   18.158.98.109 3.66.136.156
+ Further IP addresses:   3.66.136.156 18.158.98.109
  rDNS (18.159.80.129):   ec2-18-159-80-129.eu-central-1.compute.amazonaws.com.
  Service detected:       HTTP
 
-Testing vulnerabilities
+
+ Testing vulnerabilities
 
  Heartbleed (CVE-2014-0160)                not vulnerable (OK), no heartbeat extension
  CCS (CVE-2014-0224)                       not vulnerable (OK)
@@ -210,7 +211,7 @@ Testing vulnerabilities
  Secure Renegotiation (RFC 5746)           OpenSSL handshake didn't succeed
  Secure Client-Initiated Renegotiation     not vulnerable (OK)
  CRIME, TLS (CVE-2012-4929)                not vulnerable (OK)
- BREACH (CVE-2013-3587)                    potentially NOT ok, "br gzip" HTTP compression detected. - only supplied "/ru/" tested
+ BREACH (CVE-2013-3587)                    potentially NOT ok, "br gzip" HTTP compression detected. - only supplied "/" tested
                                            Can be ignored for static pages or if no secrets in the page
  POODLE, SSL (CVE-2014-3566)               not vulnerable (OK)
  TLS_FALLBACK_SCSV (RFC 7507)              Downgrade attack prevention supported (OK)
@@ -228,10 +229,47 @@ Testing vulnerabilities
  RC4 (CVE-2013-2566, CVE-2015-2808)        no RC4 ciphers detected (OK)
 
 
- Done 2021-12-08 18:11:29 [ 122s] -->> 18.158.98.109:443 (itigic.com) <<--
+ Done 2021-12-08 20:40:15 [  75s] -->> 18.159.80.129:443 (itigic.com) <<--
 
 ---------------------------------------------------------------------------------------------------------------------
-Done testing now all IP addresses (on port 443): 3.66.136.156 18.159.80.129 18.158.98.109
+ Start 2021-12-08 20:40:15        -->> 3.66.136.156:443 (itigic.com) <<--
+
+ Further IP addresses:   18.159.80.129 18.158.98.109
+ rDNS (3.66.136.156):    156.136.66.3.in-addr.arpa.
+ Service detected:       HTTP
+
+
+ Testing vulnerabilities
+
+ Heartbleed (CVE-2014-0160)                not vulnerable (OK), no heartbeat extension
+ CCS (CVE-2014-0224)                       not vulnerable (OK)
+ Ticketbleed (CVE-2016-9244), experiment.  not vulnerable (OK), no session tickets
+ ROBOT                                     not vulnerable (OK)
+ Secure Renegotiation (RFC 5746)           OpenSSL handshake didn't succeed
+ Secure Client-Initiated Renegotiation     not vulnerable (OK)
+ CRIME, TLS (CVE-2012-4929)                not vulnerable (OK)
+ BREACH (CVE-2013-3587)                    potentially NOT ok, "br gzip" HTTP compression detected. - only supplied "/" tested
+                                           Can be ignored for static pages or if no secrets in the page
+ POODLE, SSL (CVE-2014-3566)               not vulnerable (OK)
+ TLS_FALLBACK_SCSV (RFC 7507)              Downgrade attack prevention supported (OK)
+ SWEET32 (CVE-2016-2183, CVE-2016-6329)    VULNERABLE, uses 64 bit block ciphers
+ FREAK (CVE-2015-0204)                     not vulnerable (OK)
+ DROWN (CVE-2016-0800, CVE-2016-0703)      not vulnerable on this host and port (OK)
+                                           make sure you don't use this certificate elsewhere with SSLv2 enabled services
+                                           https://censys.io/ipv4?q=81516A7C3E5179A9705986DDC828D922042E4C5DDBD47658DA17F18069921B2A could help you to find out
+ LOGJAM (CVE-2015-4000), experimental      not vulnerable (OK): no DH EXPORT ciphers, no DH key detected with <= TLS 1.2
+ BEAST (CVE-2011-3389)                     TLS1: ECDHE-ECDSA-AES128-SHA ECDHE-ECDSA-AES256-SHA ECDHE-RSA-AES128-SHA ECDHE-RSA-AES256-SHA AES128-SHA AES256-SHA
+                                                 ECDHE-RSA-DES-CBC3-SHA DES-CBC3-SHA
+                                           VULNERABLE -- but also supports higher protocols  TLSv1.1 TLSv1.2 (likely mitigated)
+ LUCKY13 (CVE-2013-0169), experimental     potentially VULNERABLE, uses cipher block chaining (CBC) ciphers with TLS. Check patches
+ Winshock (CVE-2014-6321), experimental    not vulnerable (OK)
+ RC4 (CVE-2013-2566, CVE-2015-2808)        no RC4 ciphers detected (OK)
+
+
+ Done 2021-12-08 20:40:51 [ 111s] -->> 3.66.136.156:443 (itigic.com) <<--
+
+---------------------------------------------------------------------------------------------------------------------
+Done testing now all IP addresses (on port 443): 18.158.98.109 18.159.80.129 3.66.136.156
 ```
 
 ## 5. Установите на Ubuntu ssh сервер, сгенерируйте новый приватный ключ. Скопируйте свой публичный ключ на другой сервер. Подключитесь к серверу по SSH-ключу.
@@ -282,6 +320,7 @@ Last login: Wed Dec  8 20:28:32 2021
 ╭─ ~ ···················································································· ✔  with tasmity@192  at 20:39:15 ─╮
 ╰─                                                                                                                                                                           ─
 ```
+
 ## 6. Переименуйте файлы ключей из задания 5. Настройте файл конфигурации SSH клиента, так чтобы вход на удаленный сервер осуществлялся по имени сервера.
 Ответ:
 ```shell
