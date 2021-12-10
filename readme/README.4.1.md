@@ -72,7 +72,7 @@ do
   do
     curl $i:80
     if (($? != 0))
-      then
+    then
       echo $i >> error
       exit 0
     fi
