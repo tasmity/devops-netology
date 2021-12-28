@@ -43,10 +43,9 @@
 #!/usr/bin/env python3
 
 import socket
+import pickle
 import json
 import yaml
-import pickle
-
 
 hosts = ["drive.google.com", "mail.google.com", "google.com"]
 
