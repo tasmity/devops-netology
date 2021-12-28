@@ -65,7 +65,7 @@ for host in hosts:
             ip_dict[host] = new_ip
     print(f'{host}: {new_ip}')
 
-with open('data.pickle', 'wb') as ip, open('data.json', 'w') as ip_json, open('data.yaml', 'w') as ip_yaml:
+with open('data.pickle', 'wb') as ip, open('data.json', 'w') as ip_json, open('data.yml', 'w') as ip_yaml:
     pickle.dump(ip_dict, ip)
     json.dump(ip_dict, ip_json, indent=4)
     yaml.dump(ip_dict, ip_yaml, default_flow_style=False, sort_keys=False)
@@ -85,7 +85,7 @@ google.com: 173.194.220.102
     "google.com": "173.194.220.102"
 }
 
-❯ cat data.yaml
+❯ cat data.yml
 drive.google.com: 74.125.131.194
 mail.google.com: 173.194.73.19
 google.com: 173.194.220.102
