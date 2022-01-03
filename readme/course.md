@@ -435,8 +435,8 @@ Keys
 ❯ scp course:/home/tasmity/pki_root_ca.crt ./
 pki_root_ca.crt
 ```
-![](/Users/tasmity/Library/Mobile Documents/com~apple~CloudDocs/Course/devops-netology/image/course/Снимок экрана 2022-01-03 в 19.14.10.png)
-![](/Users/tasmity/Library/Mobile Documents/com~apple~CloudDocs/Course/devops-netology/image/course/Снимок экрана 2022-01-03 в 19.15.18.png)
+![](https://github.com/tasmity/devops-netology/blob/main/image/course/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA%20%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0%202022-01-03%20%D0%B2%2019.14.10.png)
+![](https://github.com/tasmity/devops-netology/blob/main/image/course/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA%20%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0%202022-01-03%20%D0%B2%2019.15.18.png)
 
 ## 6. Установите nginx.
 Ответ:
@@ -635,7 +635,7 @@ Jan 03 09:11:45 course.ru systemd[1]: Started A high performance web server and 
 ## 8. Откройте в браузере на хосте https адрес страницы, которую обслуживает сервер nginx.
 Ответ:
 
-![](/Users/tasmity/Library/Mobile Documents/com~apple~CloudDocs/Course/devops-netology/image/course/Снимок экрана 2022-01-03 в 19.15.18.png)
+![](https://github.com/tasmity/devops-netology/blob/main/image/course/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA%20%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0%202022-01-03%20%D0%B2%2020.35.44.png)
 
 ## 9. Создайте скрипт, который будет генерировать новый сертификат в vault:
 + генерируем новый сертификат так, чтобы не переписывать конфиг nginx;
