@@ -667,9 +667,9 @@ systemctl reload nginx
 
 Запуск команды каждый месяц 1 числа в 12:00:
 ```shell
-tasmity@course:~$ sudo crontab -e
+tasmity@course:~$ crontab -e
 
-tasmity@course:~$ sudo crontab -l
+tasmity@course:~$ crontab -l
 # Edit this file to introduce tasks to be run by cron.
 #
 # Each task to run has to be defined through a single line
