@@ -665,6 +665,7 @@ cat /home/tasmity/course.ru.raw.json | jq -r '.data.ca_chain[]' >> /etc/ssl/cert
 cat /home/tasmity/course.ru.raw.json | jq -r '.data.private_key' > /etc/ssl/private/course.ru.key
 systemctl reload nginx
 ```
+![](https://github.com/tasmity/devops-netology/blob/main/image/course/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA%20%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0%202022-01-03%20%D0%B2%2020.35.44.png)
 
 ## 10. Поместите скрипт в crontab, чтобы сертификат обновлялся какого-то числа каждого месяца в удобное для вас время.
 Ответ:
