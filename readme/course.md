@@ -655,6 +655,10 @@ tasmity@course:~$ ls -l update_ssl.sh
 tasmity@course:~$ vi update_ssl.sh
 
 #!/usr/bin/env bash
+
+# лучше конечно прописать переменную в конфиг среды окружения, чтоб срабатывала при любой сессии,
+# но такой задачи не стояло. 
+export VAULT_ADDR=http://127.0.0.1:8200
 vault write -format=json pki_int/issue/course_dot_ru common_name="course.ru" ttl="720h" > course.ru.raw.json
 cat /home/tasmity/course.ru.raw.json | jq -r '.data.certificate' > /etc/ssl/certs/course.ru.crt
 cat /home/tasmity/course.ru.raw.json | jq -r '.data.ca_chain[]' >> /etc/ssl/certs/course.ru.crt
