@@ -653,6 +653,11 @@ tasmity@course:~$ ls -l update_ssl.sh
 ```
 Предварительно сохранила ключи
 ```shell
+tasmity@course:~# ls /root/vault_key/
+key1  key2  key3
+```
+
+```shell
 tasmity@course:~$ vi update_ssl.sh
 
 #!/usr/bin/env bash
