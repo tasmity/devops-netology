@@ -651,18 +651,21 @@ tasmity@course:~$ chmod +x ./update_ssl.sh
 tasmity@course:~$ ls -l update_ssl.sh
 -rwxrwxr-x 1 tasmity tasmity 443 Jan  3 09:44 update_ssl.sh
 ```
+Предварительно сохранила ключи
 ```shell
 tasmity@course:~$ vi update_ssl.sh
 
 #!/usr/bin/env bash
 
 VAULT_TOKEN=$(cat /root/.vault-token)
+key1=$(cat /root/vault_key/key1)
+key2=$(cat /root/vault_key/key2)
 
 systemctl start vault.service
 
 export VAULT_ADDR=http://127.0.0.1:8200
-vault operator unseal YJjs47lV0coiCdZrFTK9cIxtHtSl5EdHs432GuIzqWH5
-vault operator unseal NkcdXUYEd1tqg/W9EZSWqoPbIGRuGfBHhKy5Ov1jONfl
+vault operator unseal ${key1}
+vault operator unseal ${key1}
 vault login ${VAULT_TOKEN}
 
 vault write -format=json pki_int/issue/course_dot_ru common_name="course.ru" ttl="720h" > course.ru.raw.json
