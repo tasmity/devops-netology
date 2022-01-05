@@ -656,14 +656,22 @@ tasmity@course:~$ vi update_ssl.sh
 
 #!/usr/bin/env bash
 
-# лучше конечно прописать переменную в конфиг среды окружения, чтоб срабатывала при любой сессии,
-# но такой задачи не стояло. 
+VAULT_TOKEN=$(cat /root/.vault-token)
+
+systemctl start vault.service
+
 export VAULT_ADDR=http://127.0.0.1:8200
+vault operator unseal YJjs47lV0coiCdZrFTK9cIxtHtSl5EdHs432GuIzqWH5
+vault operator unseal NkcdXUYEd1tqg/W9EZSWqoPbIGRuGfBHhKy5Ov1jONfl
+vault login ${VAULT_TOKEN}
+
 vault write -format=json pki_int/issue/course_dot_ru common_name="course.ru" ttl="720h" > course.ru.raw.json
 cat /home/tasmity/course.ru.raw.json | jq -r '.data.certificate' > /etc/ssl/certs/course.ru.crt
 cat /home/tasmity/course.ru.raw.json | jq -r '.data.ca_chain[]' >> /etc/ssl/certs/course.ru.crt
 cat /home/tasmity/course.ru.raw.json | jq -r '.data.private_key' > /etc/ssl/private/course.ru.key
+
 systemctl reload nginx
+
 ```
 Обновленный сертификат, с новым временем истечения:
 ![](https://github.com/tasmity/devops-netology/blob/main/image/course/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA%20%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0%202022-01-03%20%D0%B2%2023.52.49.png)
