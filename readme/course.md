@@ -670,7 +670,7 @@ systemctl start vault.service
 
 export VAULT_ADDR=http://127.0.0.1:8200
 vault operator unseal ${key1}
-vault operator unseal ${key1}
+vault operator unseal ${key2}
 vault login ${VAULT_TOKEN}
 
 vault write -format=json pki_int/issue/course_dot_ru common_name="course.ru" ttl="720h" > course.ru.raw.json
