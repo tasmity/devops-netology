@@ -22,7 +22,7 @@ Hey, Netology
 
 1. Cоздаем репозиторий на Docker hub
 
-![](https://github.com/tasmity/devops-netology/blob/main/image/docker/image1.jpg)
+![](https://github.com/tasmity/devops-netology/blob/main/image/docker/image1.png)
 
 3. Создание страницы сайта:
 ```shell
