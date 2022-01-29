@@ -226,7 +226,7 @@ ENTRYPOINT service ssh start &&  (/opt/gitlab/embedded/bin/runsvdir-start &) && 
 + Подключитесь во второй контейнер и отобразите листинг и содержание файлов в /data контейнера.
 
 Ответ:
-1.  Запуск первого контейнера в фоновом режиме и подключение папки /data
+1.  Запуск первого контейнера и подключение папки /data
 ```shell
 ❯ docker run -di -v /Users/tasmity/data:/data centos
 Unable to find image 'centos:latest' locally
@@ -241,7 +241,7 @@ Status: Downloaded newer image for centos:latest
 sh-4.4# ls /
 bin  data  dev	etc  home  lib	lib64  lost+found  media  mnt  opt  proc  root	run  sbin  srv	sys  tmp  usr  var
 ```
-2. Запуск второго контейнера в фоновом режиме и подключение папки /data
+2. Запуск второго контейнера и подключение папки /data
 ```shell
 ❯ docker run -di -v /Users/tasmity/data:/data debian
 Unable to find image 'debian:latest' locally
@@ -253,7 +253,7 @@ Status: Downloaded newer image for debian:latest
 
 
 ❯ docker exec -it 489d90e1fcf704641596aace6d317063d365d077c73a429d879c6745941aacef /bin/sh
-# ls /
+> ls /
 bin  boot  data  dev  etc  home  lib  lib64  media  mnt  opt  proc  root  run  sbin  srv  sys  tmp  usr  var
 ```
 
@@ -266,8 +266,10 @@ CONTAINER ID   IMAGE     COMMAND       CREATED          STATUS          PORTS   
 
 ❯ docker exec -ti 2d72d954bfab bash
 
-[root@2d72d954bfab /]# vi /data/test.txt
-[root@2d72d954bfab /]# cat /data/test.txt
+[root@2d72d954bfab /]
+> vi /data/test.txt
+[root@2d72d954bfab /]
+> cat /data/test.txt
 Test Docker /data folder
 ```
 4. Создание файла на хосте
