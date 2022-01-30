@@ -290,3 +290,5 @@ root@489d90e1fcf7:/# cat /data/*
 Test2 /data folder
 Test Docker /data folder
 ```
++ -i - 	Держите STDIN открытым, даже если он не подключен
++ -t - Выделить псевдо-TTY
