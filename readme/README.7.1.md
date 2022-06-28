@@ -99,7 +99,7 @@ on darwin_amd64
 
 ╭─·······································································
 ╰─ terraform --version       
-                                                                               
+
 Terraform v1.2.3
 on darwin_amd64
 
