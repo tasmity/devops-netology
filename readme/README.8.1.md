@@ -310,5 +310,4 @@ ubuntu                     : ok=3    changed=0    unreachable=0    failed=0    s
 
 [GitHub](https://github.com/tasmity/devops-netology/blob/main/readme/README.8.1.md)
 
-
-
+[GitLab](https://gitlab.com/tasmity/ansible_netology/-/blob/main/README.md)
