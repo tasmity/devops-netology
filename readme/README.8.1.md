@@ -15,6 +15,7 @@ ansible 2.10.4
 2. Создайте свой собственный публичный репозиторий на github с произвольным именем.
 
 [ansible_netology ](https://gitlab.com/tasmity/ansible_netology)
+
 3. Скачайте playbook из репозитория с домашним заданием и перенесите его в свой репозиторий.
 ```shell
 commit b6d42810ca396846228a6cd1ccd4dd7fbf1a9032 (HEAD -> main, origin/main, origin/HEAD)
@@ -62,7 +63,7 @@ some_fact=12
   
  ❯ cat group_vars/all/examp.yml
 ---
-  some_fact: 'all default fact'%
+  some_fact: "all default fact"%
 ```
 3. Воспользуйтесь подготовленным (используется docker) или создайте собственное окружение для проведения дальнейших
 испытаний.
