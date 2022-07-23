@@ -71,6 +71,20 @@ provider, а в versions.tf блок terraform с вложенным блоко�
 Ответ:
 
 ```shell
+❯ packer validate centos-7-base.json
+The configuration is valid.
+```
+
+```shell
+❯ packer build centos-7-base.json
+................................................................
+==> Wait completed after 4 minutes 28 seconds
+
+==> Builds finished. The artifacts of successful builds are:
+--> yandex: A disk image was created: centos-7-base (id: fd8t5b0g7octm48d9q3i) with family name centos
+```
+
+```shell
 ❯ terraform plan
 ................................................................
 Plan: 3 to add, 0 to change, 0 to destroy.
