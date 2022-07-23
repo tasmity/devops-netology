@@ -97,12 +97,12 @@ yandex_compute_instance.node01: Creation complete after 32s [id=fhmtlk8nl683nmap
 Apply complete! Resources: 3 added, 0 changed, 0 destroyed.
 ```
 
-![](https://github.com/tasmity/devops-netology/blob/main/image/terraform/image1.png)
-![](https://github.com/tasmity/devops-netology/blob/main/image/terraform/image2.png)
-![](https://github.com/tasmity/devops-netology/blob/main/image/terraform/image3.png)
+![Дашборд каталога](https://github.com/tasmity/devops-netology/blob/main/image/terraform/image1.png)
+![Виртуальные машины](https://github.com/tasmity/devops-netology/blob/main/image/terraform/image2.png)
+![Обзор](https://github.com/tasmity/devops-netology/blob/main/image/terraform/image3.png)
 
 1. Ответ на вопрос: при помощи какого инструмента (из разобранных на прошлом занятии) можно создать свой образ ami?
    > Образ создавала с помощью Packer. Данный инструмент мы проходили в работе
    > ["5.4. Оркестрация группы контейнеров Docker на поверхности Docker Compos](https://github.com/tasmity/devops-netology/blob/main/readme/README.5.4.md)
 2. Ссылку на репозиторий с исходной конфигурацией терраформа.
-   > Все файлы конфигурации лежат в [репозитории]()
+   > Все файлы конфигурации лежат в [репозитории](https://github.com/tasmity/devops-netology/tree/main/terraform)
