@@ -1,0 +1,24 @@
+version: "3.8"
+services:
+
+  db:
+    image: postgres:12-alpine
+    container_name: postgresSQL
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: postgre
+    ports:
+      - 5432:5432
+    volumes:
+      - bd:/var/lib/postgresql/data
+      - backup:/var/tmp
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
+
+volumes:
+  bd:
+  backup:

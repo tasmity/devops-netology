@@ -28,7 +28,7 @@
 
 Ответ:
 
-Все файлы конфигурации лежат в [репозитории](https://github.com/tasmity/devops-netology/tree/main/terraform-2)
+Все файлы конфигурации лежат в [репозитории](https://github.com/tasmity/devops-netology/tree/main/terraform/terraform-2)
 
 ```shell
 ❯ terraform init

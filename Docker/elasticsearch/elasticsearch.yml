@@ -1,0 +1,11 @@
+cluster.name: ES_cluster
+node.name: netology_test
+discovery.type: single-node
+path.data: /var/lib/data
+path.logs: /var/lib/logs
+path.repo: /elasticsearch-7.17.0/snapshots
+network.host: 0.0.0.0
+discovery.seed_hosts: ["127.0.0.1", "[::1]"]
+action.destructive_requires_name: false
+xpack.security.enabled: false
+ingest.geoip.downloader.enabled: false

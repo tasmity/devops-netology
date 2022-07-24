@@ -119,4 +119,4 @@ Apply complete! Resources: 3 added, 0 changed, 0 destroyed.
    > Образ создавала с помощью Packer. Данный инструмент мы проходили в работе
    > ["5.4. Оркестрация группы контейнеров Docker на поверхности Docker Compos"](https://github.com/tasmity/devops-netology/blob/main/readme/README.5.4.md)
 2. Ссылку на репозиторий с исходной конфигурацией терраформа.
-   > Все файлы конфигурации лежат в [репозитории](https://github.com/tasmity/devops-netology/tree/main/terraform)
+   > Все файлы конфигурации лежат в [репозитории](https://github.com/tasmity/devops-netology/tree/main/terraform/terraform-1)
