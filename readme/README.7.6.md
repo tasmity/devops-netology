@@ -22,10 +22,10 @@
 Ответ:
 
 1. И то и то находится в файле terraform-provider-aws/internal/provider/provider.go:
-   - [resource](https://github.com/hashicorp/terraform-provider-aws/blob/main/internal/provider/provider.go#:~:text=ResourcesMap%3A%20map%5Bstring%5D*schema.Resource%7B)
-   - [data_source](https://github.com/hashicorp/terraform-provider-aws/blob/main/internal/provider/provider.go#:~:text=DataSourcesMap%3A%20map%5Bstring%5D*schema.Resource%7B)
+   - строка 913: [resource](https://github.com/hashicorp/terraform-provider-aws/blob/main/internal/provider/provider.go#:~:text=ResourcesMap%3A%20map%5Bstring%5D*schema.Resource%7B)
+   - строка 415: [data_source](https://github.com/hashicorp/terraform-provider-aws/blob/main/internal/provider/provider.go#:~:text=DataSourcesMap%3A%20map%5Bstring%5D*schema.Resource%7B)
 2. В файле terraform-provider-aws/internal/service/sqs/queue.go: name_prefix
-      - [ConflictsWith: []string{"name_prefix"}](https://github.com/hashicorp/terraform-provider-aws/blob/main/internal/service/sqs/queue.go#:~:text=ConflictsWith%3A%20%5B%5Dstring%7B%22name_prefix%22%7D)
+      - строка 87: [ConflictsWith: []string{"name_prefix"}](https://github.com/hashicorp/terraform-provider-aws/blob/main/internal/service/sqs/queue.go#:~:text=ConflictsWith%3A%20%5B%5Dstring%7B%22name_prefix%22%7D)
       - Максимальна длина 80 символов:
 
           ```golang
