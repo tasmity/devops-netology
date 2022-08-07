@@ -40,11 +40,11 @@
 
 4. Проверяем готовность сервиса через браузер
 
-   ![login](https://github.com/tasmity/devops-netology/tree/main/image/9.2/1.png)
+   ![login](https://github.com/tasmity/devops-netology/blob/main/image/9.2/1.png)
 
 5. Заходим под admin\admin, меняем пароль на свой
 
-   ![change login](https://github.com/tasmity/devops-netology/tree/main/image/9.2/2.png)
+   ![change login](https://github.com/tasmity/devops-netology/blob/main/image/9.2/2.png)
 
 В целом, в этой статье описаны все варианты установки, включая и [docker](https://docs.sonarqube.org/latest/setup/install-server/),
 но так как нам он нужен разово, то достаточно того набора действий, который я указал выше.
@@ -53,7 +53,7 @@
 
 1. Создаём новый проект, название произвольное
 
-   ![project](https://github.com/tasmity/devops-netology/tree/main/image/9.2/3.png)
+   ![project](https://github.com/tasmity/devops-netology/blob/main/image/9.2/3.png)
 
 2. Скачиваем пакет sonar-scanner, который нам предлагает скачать сам sonarqube
 
@@ -123,9 +123,9 @@
 
 6. Смотрим результат в интерфейсе
 
-    ![scan](https://github.com/tasmity/devops-netology/tree/main/image/9.2/4.png)
+    ![scan](https://github.com/tasmity/devops-netology/blob/main/image/9.2/4.png)
 
-    ![bug](https://github.com/tasmity/devops-netology/tree/main/image/9.2/5.png)
+    ![bug](https://github.com/tasmity/devops-netology/blob/main/image/9.2/5.png)
 
 7. Исправляем ошибки, которые он выявил(включая warnings)
 
@@ -171,7 +171,7 @@
 
 9. Делаем скриншот успешного прохождения анализа, прикладываем к решению ДЗ
 
-   ![good](https://github.com/tasmity/devops-netology/tree/main/image/9.2/6.png)
+   ![good](https://github.com/tasmity/devops-netology/blob/main/image/9.2/6.png)
 
 ## Знакомство с Nexus
 
@@ -216,7 +216,7 @@
 
 4. Проверяем готовность сервиса через бразуер
 
-   ![nexus](https://github.com/tasmity/devops-netology/tree/main/image/9.2/7.png)
+   ![nexus](https://github.com/tasmity/devops-netology/blob/main/image/9.2/7.png)
 
 5. Узнаём пароль от admin через docker exec -it nexus /bin/bash
 
@@ -232,9 +232,9 @@
 
 6. Подключаемся под админом, меняем пароль, сохраняем анонимный доступ
 
-      ![shange_pass](https://github.com/tasmity/devops-netology/tree/main/image/9.2/8.png)
+      ![shange_pass](https://github.com/tasmity/devops-netology/blob/main/image/9.2/8.png)
 
-      ![anonim](https://github.com/tasmity/devops-netology/tree/main/image/9.2/9.png)
+      ![anonim](https://github.com/tasmity/devops-netology/blob/main/image/9.2/9.png)
 
 ### Основная часть
 
@@ -247,7 +247,7 @@
 2. В него же загружаем такой же артефакт, но с version: 8_102
 3. Проверяем, что все файлы загрузились успешно
 
-   ![java](https://github.com/tasmity/devops-netology/tree/main/image/9.2/10.png)
+   ![java](https://github.com/tasmity/devops-netology/blob/main/image/9.2/10.png)
 
 4. В ответе присылаем файл maven-metadata.xml для этого артефекта
 
